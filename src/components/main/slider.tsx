@@ -11,7 +11,7 @@ export default function Hero() {
   const progressContent = useRef<HTMLSpanElement>(null);
 
   const onAutoplayTimeLeft = (
-    swiper: SwiperClass,
+    _swiper: SwiperClass,
     time: number,
     progress: number
   ) => {
