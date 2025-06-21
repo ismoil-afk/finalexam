@@ -39,20 +39,18 @@ interface RainbowButtonProps
     VariantProps<typeof rainbowButtonVariants> {
   asChild?: boolean;
   className?: string;
-  variant?: string;
-  size?: string;
 }
 
 const RainbowButton = React.forwardRef<HTMLButtonElement, RainbowButtonProps>(
   (
-    { className, variant, size, asChild = false, ...props }: RainbowButtonProps,
+    { className, ...props }: RainbowButtonProps,
     ref: React.Ref<HTMLButtonElement>
   ) => {
-    const Comp = asChild ? Slot : "button";
+    const Comp = props.asChild ? Slot : "button";
     return (
       <Comp
         data-slot="button"
-        className={cn(rainbowButtonVariants({ variant, size, className }))}
+        className={cn(rainbowButtonVariants(props))}
         ref={ref}
         {...props}
       />
